@@ -11,6 +11,7 @@ body {
   justify-content: center;
   min-height: 100dvh;
   overflow: hidden;
+  transition: background-color 1s ease;
 }
 
 .container {
@@ -34,13 +35,41 @@ body {
   background-color: #ffffff;
   border-radius: 50%;
   place-self: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 1s ease;
+
+  /* we need vars and a single transform to avoid overwriting transformations */
+  --x: 0px;
+  --y: 0px;
+  --s: 1;
+
+  transform: translate(var(--x), var(--y)) scale(var(--s));
 }
 
-.dot:hover, .dot:active {
-    transform: scale(var(--scale-factor));
-    /* just cuz */
-    cursor: none;
+/* symmetry is boring */
+.dot:nth-child(3n) {
+  --x: 5px;
+  --y: -10px;
+}
+
+.dot:nth-child(7n) {
+  --x: -8px;
+  --y: 12px;
+}
+
+.dot:nth-child(11n) {
+  opacity: 0.6;
+}
+
+.dot:nth-child(17n) {
+  opacity: 0.3;
+}
+
+.dot:hover {
+  --s: var(--scale-factor);
+  /* just cuz */
+  cursor: none;
 }
 
 .s {
@@ -58,7 +87,21 @@ body {
 .l {
   width: 60%;
   height: 60%;
-  --scale-factor: 1.25
+  --scale-factor: 1.25;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .dot {
+    background-color: #222222;
+  }
+
+  .title {
+    color: #222222;
+  }
 }
 
 .footer {
@@ -79,4 +122,5 @@ body {
   /* (try to) offset letter spacing */
   padding-left: 0.4em;
   letter-spacing: 0.6em;
+  transition: color 1s ease;
 }

@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background-color: #222222;
+  color: #ffffff;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1vmin;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 5vh;
+}
+
+.dot {
+  background-color: #ffffff;
+  border-radius: 50%;
+  place-self: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(var(--scale-factor));
+    /* just cuz */
+    cursor: none;
+}
+
+.s {
+  width: 25%;
+  height: 25%;
+  --scale-factor: 1.8;
+}
+
+.m {
+  width: 45%;
+  height: 45%;
+  --scale-factor: 1.5;
+}
+
+.l {
+  width: 60%;
+  height: 60%;
+  --scale-factor: 1.25
+}
+
+.footer {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(1.2rem, 5vmin, 2.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* (try to) offset letter spacing */
+  padding-left: 0.4em;
+  letter-spacing: 0.6em;
+}

@@ -42,6 +42,10 @@ body {
     cursor: none;
 }
 
+.dot:active {
+    transform: scale(var(--scale-factor));
+}
+
 .s {
   width: 25%;
   height: 25%;

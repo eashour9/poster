@@ -37,14 +37,10 @@ body {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.dot:hover {
+.dot:hover, .dot:active {
     transform: scale(var(--scale-factor));
     /* just cuz */
     cursor: none;
-}
-
-.dot:active {
-    transform: scale(var(--scale-factor));
 }
 
 .s {

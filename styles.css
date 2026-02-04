@@ -68,6 +68,8 @@ body {
 
 .dot:hover {
   --s: var(--scale-factor);
+  /* force the whole transform to reapply because safari is too stupid*/
+  transform: translate(var(--x), var(--y)) scale(var(--s));
   /* just cuz */
   cursor: none;
 }

@@ -36,7 +36,9 @@ body {
   border-radius: 50%;
   place-self: center;
   transition:
-    transform 0.3s ease,
+    /* i dont understand how this works but this helped a little: https://cubic-bezier.com */
+    /* point is to add some "recoil" to the transition */
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     background-color 1s ease;
 
   /* we need vars and a single transform to avoid overwriting transformations */
@@ -71,7 +73,7 @@ body {
   /* force the whole transform to reapply because safari is too stupid*/
   transform: translate(var(--x), var(--y)) scale(var(--s));
   /* just cuz */
-  cursor: none;
+  cursor: pointer;
 }
 
 .s {
